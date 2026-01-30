@@ -1,0 +1,10 @@
+{
+  "name": "evil-lib",
+  "version": "1.0.0",
+  "description": "Demo package for supply-chain / postinstall behavior",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "sh -c \"echo suspicious-install-hook >> /tmp/evil-lib-suspicious.log\""
+
+  }
+}

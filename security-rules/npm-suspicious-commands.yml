@@ -1,0 +1,13 @@
+rules:
+  - id: npm-suspicious-install-commands
+    message: "Suspicious command in npm install hook. Review for supply-chain risk (curl/wget/bash/sh/powershell/nc)."
+    severity: ERROR
+    languages: [json]
+    patterns:
+      - pattern-either:
+          - pattern: '"preinstall": $X'
+          - pattern: '"install": $X'
+          - pattern: '"postinstall": $X'
+      - metavariable-regex:
+          metavariable: $X
+          regex: '.*(curl|wget|bash|sh|powershell|pwsh|nc|netcat).*'
