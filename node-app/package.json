@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "evil-lib": "file:../local-packages/evil-lib",
+    "evil-lib": "file:evil-lib-1.0.0.tgz",
     "express": "^5.2.1"
   }
 }
