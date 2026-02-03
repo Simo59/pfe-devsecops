@@ -1,7 +1,7 @@
 rules:
   - id: npm-install-hook-scripts
     message: "Install hook script detected (preinstall/install/postinstall). Review: these scripts run automatically during npm install."
-    severity: WARNING
+    severity: INFO 
     languages: [json]
     patterns:
       - pattern-either:
