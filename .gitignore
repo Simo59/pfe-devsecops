@@ -18,3 +18,4 @@ yarn-error.log*
 
 # Minikube downloads / binaries
 minikube-linux-amd64
+local-packages/evil-lib/*.tgz
