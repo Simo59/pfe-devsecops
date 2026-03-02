@@ -1,20 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pfe-devsecops
+  name: pfe-node-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pfe-devsecops
+      app: pfe-node-app
   template:
     metadata:
       labels:
-        app: pfe-devsecops
+        app: pfe-node-app
     spec:
       containers:
         - name: web
-          image: pfe-devsecops:1
+          image: pfe-node-app:ci
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 5000
+            - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 20

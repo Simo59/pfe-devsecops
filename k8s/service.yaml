@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pfe-devsecops-svc
+  name: pfe-node-app-svc
 spec:
   selector:
-    app: pfe-devsecops
+    app: pfe-node-app
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 5000
+      targetPort: 3000
   type: NodePort
